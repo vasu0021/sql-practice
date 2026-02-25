@@ -42,6 +42,65 @@ WHERE (DEPARTMENT,SALARY) IN (
     GROUP BY DEPARTMENT
 );
 
+-- Q-7. Write an SQL query to print the FIRST_NAME from Worker table after removing white spaces from the right side.
+
+SELECT rtrim(FIRST_NAME)
+FROM Worker;
+
+-- Q-8. Write an SQL query that fetches the unique values of DEPARTMENT from Worker table and prints its length. 
+
+SELECT DISTINCT(DEPARTMENT) AS Deparment_Name, length(DEPARTMENT) AS Length
+FROM Worker;
+
+-- Q-9. Write an SQL query to fetch nth max salaries from a table. 
+
+-- Method 1: LIMIT + OFFSET:-
+ 
+SELECT DISTINCT SALARY
+FROM Worker
+ORDER BY SALARY DESC
+LIMIT 1 OFFSET 1;
+
+-- Method 2: Subquery:-
+
+SELECT MAX(salary)
+FROM Worker AS Nth_salary
+WHERE salary < (
+	SELECT MAX(salary)
+	FROM Worker
+);
+
+-- Q-10. Write an SQL query to print the FIRST_NAME from Worker table after replacing ‘a’ with ‘A’. 
+
+SELECT replace(FIRST_NAME,'a','A')
+FROM Worker;
+
+-- Case Sensitivity 
+SELECT replace(lower(FIRST_NAME),'a','A')
+FROM Worker;
+
+--  Q-11. Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+
+SELECT * FROM WORKER
+ORDER BY FIRST_NAME asc, DEPARTMENT desc;
+
+-- Q-12. Write an SQL query to fetch the names of workers who earn the highest salary. 
+
+SELECT FIRST_NAME
+from worker
+WHERE salary = (
+	SELECT max(salary)
+    from Worker
+);
+
+
+
+
+
+
+
+
+
 
 
 
