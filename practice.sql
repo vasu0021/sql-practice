@@ -128,12 +128,93 @@ HAVING COUNT(*) > 1;
 
 -- Q-18. How to remove duplicate rows from Employees table.
 
-DELETE FROM Worker
-WHERE WORKER_ID NOT IN (
-    SELECT MIN(WORKER_ID)
-    FROM Worker
-    GROUP BY FIRST_NAME
+
+DELETE 
+FROM WORKER
+WHERE Worker_id NOT IN(
+	SELECT * FROM
+		(SELECT MIN(WORKER_ID)
+		FROM Worker
+		GROUP BY FIRST_NAME
+		) AS temp
 );
+
+--  Q-19. Write an SQL query to show only odd rows from a table.
+
+
+SELECT *
+FROM Worker
+WHERE mod(WORKER_ID,2)=1;
+
+-- Q-20. Write an SQL query to clone a new table from another table. 
+
+-- structure + data
+CREATE TABLE Worker_copy
+AS
+SELECT * FROM Worker; 
+
+-- Only Struture
+CREATE TABLE Worker_Str
+AS
+SELECT * FROM Worker
+WHERE 1=0; 
+
+-- Q-21. Write an SQL query to fetch intersecting records of two tables.
+
+SELECT * 
+FROM Worker
+INNER JOIN Worker_Copy
+ON worker.Worker_id = Worker_Copy.Worker_id;
+
+-- Q-16. Write an SQL query to show records from one table that another table does not have. 
+
+SELECT *
+FROM Worker
+LEFT JOIN Worker_copy
+on worker.worker_id = Worker_copy.worker_id
+WHERE Worker_copy.worker_id is null;
+
+-- Q-22. Write an SQL query to show the top n (say 10) records of a table. 
+
+SELECT * 
+FROM Worker
+order by worker_id desc
+limit 10;
+
+-- Q-23. Write an SQL query to determine the nth (say n=5) highest salary from a table.
+
+select salary
+from worker
+order by salary desc
+limit 1 offset 4;
+
+
+-- Q-24. Write an SQL query to determine the 5th highest salary without using TOP or limit method. 
+
+SELECT salary
+FROM Worker w1
+WHERE (
+    SELECT COUNT(DISTINCT salary)
+    FROM Worker w2
+    WHERE w2.salary > w1.salary
+) = 4;
+
+-- Q-25. Write an SQL query to fetch the list of employees with the same salary. 
+
+SELECT *
+FROM Worker
+WHERE SALARY IN (
+    SELECT SALARY
+    FROM Worker
+    GROUP BY SALARY
+    HAVING COUNT(*) > 1
+);
+
+
+
+
+
+
 
 
 
