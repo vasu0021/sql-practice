@@ -1,26 +1,27 @@
 # SQL Practice Repository
 
-This repository contains my structured SQL practice queries covering basic to intermediate concepts.
-It is created for hands-on learning, revision, and technical interview preparation.
+This repository contains structured SQL practice queries covering fundamental to intermediate concepts.  
+The goal of this project is to strengthen SQL fundamentals, improve problem-solving skills, and prepare for technical interviews in Data Analytics and Data Science roles.
 
 ---
 
-## Topics Covered
+## Project Overview
 
-- Basic Queries (SELECT, WHERE, DISTINCT)
-- Sorting & Filtering (ORDER BY, LIMIT, OFFSET)
-- String Functions (SUBSTRING, RTRIM, REPLACE, LOCATE, LEFT)
-- Aggregate Functions (MAX, COUNT, SUM, AVG)
-- GROUP BY and HAVING
-- Subqueries
-- Finding Nth Highest Salary
-- Joins (Planned)
+The repository includes:
+
+- Database creation scripts
+- Table creation statements
+- Sample data insertion
+- Practice queries with different SQL concepts
+
+The dataset is based on a sample Company database.
 
 ---
 
-## Database Details
+## Database Structure
 
-Database Name: Company  
+### Database Name
+Company
 
 ### Tables
 
@@ -37,7 +38,7 @@ Columns:
 - EMAIL
 
 #### 2. WorkerDetails
-Stores location details.
+Stores employee city details.
 
 Columns:
 - WORKER_ID
@@ -46,51 +47,63 @@ Columns:
 
 ---
 
-## Project Files
+## SQL Concepts Covered
 
-| File Name    | Description                             |
-|--------------|-----------------------------------------|
-| practice.sql | Database setup and practice queries     |
-| README.md    | Project documentation                   |
-| LICENSE      | MIT License                             |
+- SELECT and DISTINCT
+- WHERE conditions
+- ORDER BY
+- GROUP BY and HAVING
+- Aggregate functions (COUNT, MAX, MIN, SUM, AVG)
+- String functions (SUBSTRING, REPLACE, LOCATE, RTRIM)
+- Pattern matching (LIKE)
+- Date functions (MONTH, YEAR)
+- LIMIT and OFFSET
+- Nth highest salary (multiple methods)
+- Correlated subqueries
+- Duplicate record detection and removal
+- JOIN operations (INNER JOIN, LEFT JOIN)
+- Subqueries
 
 ---
 
-## Project Objective
+## Sample Interview-Level Problems Solved
 
-- Strengthen SQL fundamentals
-- Practice real-world queries
-- Prepare for internships and interviews
-- Build a professional GitHub portfolio
+- Find the nth highest salary
+- Fetch employees with duplicate salaries
+- Remove duplicate records
+- Show odd rows
+- Clone a table
+- Fetch intersecting records
+- Find records present in one table but not in another
 
 ---
 
 ## Technologies Used
 
-- SQL (MySQL Compatible)
-- Git and GitHub
+- MySQL
+- Git
+- GitHub
 - Windows Command Line
+
+---
+
+## Purpose of This Repository
+
+- Practice real-world SQL queries
+- Prepare for Data Analyst interviews
+- Build a strong GitHub portfolio
+- Track daily SQL learning progress
 
 ---
 
 ## Author
 
 Vasu Dev Sharma  
-B.Tech CSE Student  
+B.Tech Computer Science and Engineering  
 Interested in Data Analytics, Data Science, and Machine Learning  
 
 GitHub: https://github.com/vasu0021
 
 ---
 
-## Future Enhancements
-
-- Advanced Joins
-- Views and Indexes
-- Stored Procedures
-- Performance Optimization
-- Real Case Studies
-
----
-
-If you find this repository helpful, feel free to star it.
+This repository is regularly updated with new SQL practice problems.
