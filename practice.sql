@@ -93,6 +93,49 @@ WHERE salary = (
     from Worker
 );
 
+-- Q-13. Write an SQL query to print details of workers excluding first names, “Vipul” and “Satish” from Worker table. 
+
+-- Method 1:
+SELECT *
+FROM Worker
+WHERE FIRST_NAME NOT IN ('Vipul','Satish');
+
+-- Q-14. Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME LIKE '_____h';
+
+-- Q-15. Write a query to validate Email of Employee. 
+
+SELECT Email
+FROM Worker
+WHERE Email LIKE '%@%.%';
+
+-- Q-16. Write an SQL query to print details of the Workers who have joined in Feb’2014.
+
+SELECT *
+FROM Worker
+WHERE MONTH(JOINING_DATE) = 2
+AND YEAR(JOINING_DATE) = 2014;
+
+-- Q-17. Write an SQL query to fetch duplicate records having matching data in some fields of a table. 
+
+SELECT FIRST_NAME, count(*)
+FROM worker
+group by FIRST_NAME
+HAVING COUNT(*) > 1;
+
+-- Q-18. How to remove duplicate rows from Employees table.
+
+DELETE FROM Worker
+WHERE WORKER_ID NOT IN (
+    SELECT MIN(WORKER_ID)
+    FROM Worker
+    GROUP BY FIRST_NAME
+);
+
+
 
 
 
